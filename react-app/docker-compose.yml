@@ -1,0 +1,19 @@
+version: '3.8'
+services: 
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev 
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - .:/app
+      - /app/node_modules
+    environment:
+      PUBLIC8KEY: sdflksjslf
+  app-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports: 
+      - "9000:80"
